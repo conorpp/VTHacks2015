@@ -17,8 +17,8 @@ module.exports =
     {
         db: {
             userid: 0,
-            users: {},
         },
+        posts:[],
         saves:0,
         fs: require('fs'),
 
@@ -31,6 +31,12 @@ module.exports =
                 this.db = d;
             else
                 throw('corrupt db');
+            for (var i in this.db.users)
+                for (var j in this.db.users[i].posts)
+            {
+                this.posts.push({'pic': this.db.users[i].posts[j].pic,
+                                    'userid': j});
+            }
         },
         save: function()
         {
@@ -65,6 +71,13 @@ module.exports =
         getNewUserId: function()
         {
             return this.db.userid++;
+        },
+
+        getImage: function(num)
+        {
+            var inx = num % this.posts.length;
+            console.log('indx: ', inx);
+            return this.posts[num % this.posts.length];
         }
 
     };

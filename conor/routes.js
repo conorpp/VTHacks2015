@@ -22,6 +22,15 @@ function(app,db){
         res.render('trade' );
     });
 
+    app.post('/post', function (req, res) {
+        res.render('collection' );
+    });
+
+    app.get('/test', function (req, res) {
+        res.render('test' );
+    });
+
+
     app.get('/error', function (req, res) {
         res.render('home', {numerr:true});
     });
@@ -38,9 +47,19 @@ function(app,db){
         res.redirect('/');
     });
 
-    app.post('/api', json, function (req, res) {
+    app.get('/image', function (req, res) {
         console.log(req.body);
-        res.sendStatus(200);
+        var id = parseInt(req.query.id);
+        if (id != 0 && !id)
+        {
+            console.log('invlaid id');
+            return;
+        }
+        
+        res.sendFile(__dirname+'/static/images/' + db.getImage(parseInt(req.query.id)).pic,
+            function(err){
+                console.log('sent '+db.getImage(0).pic);
+        });
     });
 
 
