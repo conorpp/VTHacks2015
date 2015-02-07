@@ -1,11 +1,12 @@
 .header {
 	border-style: solid;
-	background-color: #CCFF99;
+	background-color: #FFFFEB;
 	border-color: #B8E68A;
 	border-width: 10px;
 	text-align: center;
 	border-radius: 10px;
 	margin: 0px auto;
+	box-shadow: 10px 10px 5px  #669166;
 }
 .header h1 {
 	color: #6F8F50;
@@ -23,7 +24,7 @@
 	height: 150px;
     width: 50%;
     border-color: #B8E68A;
-    background-color: #CCFF99;
+    background-color: #FFFFEB;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
@@ -38,7 +39,7 @@
 	height: 150px;
     width: 50%;
     border-color: #B8E68A;
-    background-color: #CCFF99;
+    background-color: #FFFFEB;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
@@ -52,4 +53,37 @@
 #look a{
 	color: #6F8F57;
 	font-size: 1.5em;
+}
+.title {
+	border-style: solid;
+	background-color: #FFFFEB;
+	border-color: #B8E68A;
+	border-width: 10px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 0.5%;
+	margin: 0px auto;
+	margin-top: 50px;
+	max-width: 50%;
+	box-shadow: 10px 10px 5px  #669166;
+}
+.title h3 {
+	color: #6F8F57;
+	font-size: 3em;
+}
+.picture {
+	border-style: solid;
+	background-color: #FFFFEB;
+	border-color: #B8E68A;
+	border-width: 10px;
+	text-align: center;
+	border-radius: 10px;
+	width: 70%;
+	margin: 0px auto;
+	margin-top: 50px;
+	box-shadow: 10px 10px 5px  #669166;
+}
+.picture h3 {
+	color: #6F8F57;
+	font-size: 3em;
 }

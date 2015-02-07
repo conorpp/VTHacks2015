@@ -1,0 +1,10 @@
+.picture {
+	border-style: solid;
+	background-color: #CCFF99;
+	border-color: #B8E68A;
+	border-width: 10px;
+	text-align: center;
+	border-radius: 10px;
+	margin: 0px auto;
+	box-shadow: 10px 10px 5px  #669166;
+}
