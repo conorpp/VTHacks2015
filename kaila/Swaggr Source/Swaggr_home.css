@@ -1,3 +1,6 @@
+body {
+	text-align: center;
+}
 .header {
 	border-style: solid;
 	background-color: #FFFFEB;
@@ -54,23 +57,6 @@
 	color: #6F8F57;
 	font-size: 1.5em;
 }
-.title {
-	border-style: solid;
-	background-color: #FFFFEB;
-	border-color: #B8E68A;
-	border-width: 10px;
-	text-align: center;
-	border-radius: 10px;
-	padding: 0.5%;
-	margin: 0px auto;
-	margin-top: 50px;
-	max-width: 50%;
-	box-shadow: 10px 10px 5px  #669166;
-}
-.title h3 {
-	color: #6F8F57;
-	font-size: 3em;
-}
 .picture {
 	border-style: solid;
 	background-color: #FFFFEB;
@@ -78,12 +64,59 @@
 	border-width: 10px;
 	text-align: center;
 	border-radius: 10px;
-	width: 70%;
+	max-width: 70%;
 	margin: 0px auto;
 	margin-top: 50px;
 	box-shadow: 10px 10px 5px  #669166;
+	display: inline-block;
 }
 .picture h3 {
 	color: #6F8F57;
 	font-size: 3em;
+}
+#leftbutton {
+	border-style: solid;
+	background-color: #FFFFEB;
+	border-color: #B8E68A;
+	border-width: 3px;
+	border-radius: 20px;
+	text-align: center;
+	margin-top: 350px;
+	margin-left: 50px;
+	box-shadow: 10px 10px 5px  #669166;
+	display: inline-block;
+	float: left;
+	padding: 2%;
+}
+#leftbutton {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #8FB26B;
+}
+#leftbutton:hover {
+	color: #000000;
+	text-decoration: none;
+}
+#rightbutton {
+	border-style: solid;
+	background-color: #FFFFEB;
+	border-color: #B8E68A;
+	border-width: 3px;
+	border-radius: 20px;
+	text-align: center;
+	margin-top: 350px;
+	margin-right: 50px;
+	box-shadow: 10px 10px 5px  #669166;
+	display: inline-block;
+	float: right;
+	padding: 2%;
+}
+#rightbutton {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #8FB26B;
+}
+#rightbutton:hover {
+	color: #000000;
+	text-decoration: none;
 }
