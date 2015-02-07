@@ -8,6 +8,10 @@ function(app){
         res.render('home');
     });
 
+    app.get('/test', function (req, res) {
+        res.render('test',{'name':'colin'});
+    });
+
     
     
     
