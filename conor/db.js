@@ -40,7 +40,7 @@ module.exports =
         },
         userExists: function(sesh){
             
-            (db.users[sesh])
+            (this.db.users[sesh])
                 return true;
             return false;
         },
