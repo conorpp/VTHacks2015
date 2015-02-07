@@ -7,21 +7,19 @@ function(app,db){
 
     function auth(req){
         var cook = req.signedCookies.sessionid;
-        
-        if (cook && db.userExists(cook))
-        {
-            
-        }
-        else
-        {
-            
-        }
         console.log('cooike',cook);
+        return cook && db.userExists(cook);
     }
 
     app.get('/', function (req, res) {
-        auth(req);
-        res.render('home', {name:'yo yo'});
+        if (auth(req))
+            res.render('home_auth', {});
+        else
+            res.render('home', {});
+    });
+
+    app.get('/trade', function (req, res) {
+        res.render('trade' );
     });
 
     app.get('/error', function (req, res) {
@@ -44,8 +42,6 @@ function(app,db){
         console.log(req.body);
         res.sendStatus(200);
     });
-
-
 
 
 };

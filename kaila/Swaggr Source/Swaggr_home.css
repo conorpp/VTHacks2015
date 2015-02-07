@@ -9,18 +9,18 @@
 }
 .header h1 {
 	color: #6F8F50;
-	font-size: 80px;
+	font-size: 6em;
 }
 .header p {
 	color: #6F8F57;
-	font-size: 35px;
+	font-size: 2em;
 }
 #post a {
 	color: #6F8F57;
-	font-size: 20px;
+	font-size: 1.5em;
 }
 #post {
-	height: 200px;
+	height: 150px;
     width: 50%;
     border-color: #B8E68A;
     background-color: #CCFF99;
@@ -31,11 +31,11 @@
 }
 #post h3 {
 	color: #8FB26B;
-	font-size: 55px;
+	font-size: 4em;
 	text-align: center;
 }
 #look {
-	height: 200px;
+	height: 150px;
     width: 50%;
     border-color: #B8E68A;
     background-color: #CCFF99;
@@ -46,10 +46,10 @@
 }
 #look h3 {
 	color: #8FB26B;
-	font-size: 55px;
+	font-size: 4em;
 	text-align: center;
 }
 #look a{
 	color: #6F8F57;
-	font-size: 20px;
+	font-size: 1.5em;
 }
