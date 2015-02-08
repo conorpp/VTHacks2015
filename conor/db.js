@@ -38,6 +38,12 @@ module.exports =
             this.fs.writeFileSync('db.json', JSON.stringify(this.db));
             console.log('saved db');
         },
+        userExists: function(sesh){
+            
+            (db.users[sesh])
+                return true;
+            return false;
+        }
         addUser: function(seshid, number)
         {
             var users = this.db.users;

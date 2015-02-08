@@ -7,10 +7,19 @@ function(app,db){
 
     function auth(req){
         var cook = req.signedCookies.sessionid;
+        if (db.userExists())
+        {
+            
+        }
+        else
+        {
+            
+        }
         console.log('cooike',cook);
     }
 
     app.get('/', function (req, res) {
+        auth(req);
         res.render('home', {name:'yo yo'});
     });
 
@@ -30,7 +39,6 @@ function(app,db){
         res.redirect('/');
     });
 
-<<<<<<< HEAD
     app.post('/api', json, function (req, res) {
         console.log(req.body);
         res.sendStatus(200);
@@ -40,27 +48,3 @@ function(app,db){
 
 
 };
-=======
-    app.get('/test', function (req, res) {
-        res.render('test',{'name':'colin'});
-    });
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
->>>>>>> c6415f60764701ffef5dc2fcea20c1749690f767
