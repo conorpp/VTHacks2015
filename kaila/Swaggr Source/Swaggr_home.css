@@ -53,7 +53,7 @@ body {
     padding: 2%;
     display: inline-block;
     font-size: 4em;
-    color: #6F8F57;;
+    color: #6F8F57;
 }
 #look:hover {
 	color: #000000;
@@ -66,15 +66,16 @@ body {
 	border-width: 10px;
 	text-align: center;
 	border-radius: 10px;
-	max-width: 70%;
 	margin: 0px auto;
-	margin-top: 50px;
 	box-shadow: 10px 10px 5px  #669166;
+	width: 600px;
+	height: 600px;
 	display: inline-block;
+	margin-top: 50px;
 }
 .picture h3 {
 	color: #6F8F57;
-	font-size: 3em;
+	font-size: 2em;
 }
 #leftbutton {
 	border-style: solid;
@@ -83,15 +84,15 @@ body {
 	border-width: 3px;
 	border-radius: 20px;
 	text-align: center;
-	margin-top: 350px;
-	margin-left: 50px;
+	margin-top: 275px;
+	margin-left: 300px;
 	box-shadow: 10px 10px 5px  #669166;
 	display: inline-block;
 	float: left;
-	padding: 2%;
+	padding: 1%;
 }
 #leftbutton {
-	font-size: 1.5em;
+	font-size: 2.5em;
 	font-weight: bold;
 	color: #8FB26B;
 }
@@ -106,19 +107,34 @@ body {
 	border-width: 3px;
 	border-radius: 20px;
 	text-align: center;
-	margin-top: 350px;
-	margin-right: 50px;
+	margin-top: 275px;
+	margin-right: 300px;
 	box-shadow: 10px 10px 5px  #669166;
 	display: inline-block;
 	float: right;
-	padding: 2%;
+	padding: 1%;
 }
 #rightbutton {
-	font-size: 1.5em;
+	font-size: 2.5em;
 	font-weight: bold;
 	color: #8FB26B;
 }
 #rightbutton:hover {
 	color: #000000;
 	text-decoration: none;
+}
+#notification {
+	font-size: 2.5em;
+	color: #6F8F57;
+	text-align: center;
+	border-style: solid;
+	background-color: #FFFFEB;
+	border-color: #B8E68A;
+	border-width: 10px;
+	text-align: center;
+	border-radius: 10px;
+	max-width: 70%;
+	margin: 0px auto;
+	margin-top: 50px;
+	box-shadow: 10px 10px 5px  #669166;
 }
