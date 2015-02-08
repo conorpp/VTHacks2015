@@ -138,3 +138,67 @@ body {
 	margin-top: 50px;
 	box-shadow: 10px 10px 5px  #669166;
 }
+#footer {
+    width:87%;
+    position:fixed;
+    bottom:0px;
+	color: #669166;
+	font-size: 2.5em;
+}
+#footer:hover {
+	color: #000000;
+	text-decoration: none;
+}
+.leftm {
+	width: 550px;
+	height: 730px;
+	float: left;
+	border-style: solid;
+	background-color: #FFFFEB;
+	border-color: #B8E68A;
+	border-width: 10px;
+	text-align: center;
+	border-radius: 10px;
+	margin-top: 50px;
+	margin-left: 50px;
+	box-shadow: 10px 10px 5px  #669166;
+	display: inline-block;
+}
+.rightm {
+	width: 550px;
+	height: 730px;
+	float: right;
+	border-style: solid;
+	background-color: #FFFFEB;
+	border-color: #B8E68A;
+	border-width: 10px;
+	text-align: center;
+	border-radius: 10px;
+	margin-top: 50px;
+	margin-right: 50px;
+	box-shadow: 10px 10px 5px  #669166;
+	display: inline-block;
+}
+.match {
+	width: 300px;
+	height: 220px;
+	border-style: solid;
+	background-color: #FFFFEB;
+	border-color: #B8E68A;
+	border-width: 10px;
+	text-align: center;
+	border-radius: 10px;
+	margin-top: 50px;
+	box-shadow: 10px 10px 5px  #669166;
+	display: inline-block;
+}
+.match h3 {
+	color: #6F8F57;
+	font-size: 4em;
+	text-align: center;
+}
+.match p {
+	color: #6F8F57;
+	font-size: 1.5em;
+	text-align: center;
+}
