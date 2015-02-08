@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
+  		<link type="text/css" rel="stylesheet" href="css/bootstrap-theme.css"/>
+  		<script src="dropzone.js"></script>
+  		<link type="text/css" rel="stylesheet" href="dropzone.css"/>
+	</head>
+
+	<body background="http://www.psdgraphics.com/file/nature-background.jpg">
+		<div style="margin-top:200px">
+			<div class="container">
+				<div class="panel panel-default" style="margin:0 auto;width:500px">
+					<div class="panel-heading">
+						<h2 class="panel-title">Listing Form</h2>
+					</div>
+					<div class="panel-body">
+						<form name="contactform" method="post" action="<linkhere>" class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="inputName" class="col-lg-2 control-label">Name</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputName" name="inputName" placeholder="Your Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputSubject" class="col-lg-2 control-label">Subject</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="inputSubject" name="inputSubject" placeholder="Subject Message">
+								</div>
+							</div>
+							<div action="/file-upload" class="dropzone" id="my-awesome-dropzone"></div>
+							<div class="fallback">
+								<input name="file" type="file" multiple />
+							</div>
+							<div class="form-group">
+								<div class="col-lg-offset-2 col-lg-10">
+									<button type="submit" class="btn btn-default">
+										Send Message
+									</button>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

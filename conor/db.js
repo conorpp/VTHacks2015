@@ -56,18 +56,34 @@ module.exports =
             if (!users[seshid])
             {
                 
+                users[seshid] = {};
+                users[seshid].posts = [];
+
             }
-            else
-            {
-                users[seshid].number = number;
-            }
+            users[seshid].number = number;
 
             if (this.saves % 3 == 0)
+            
             {
                 this.save();
             }
             
         },
+
+        addPost: function(seshid, image, title){
+            console.log('adding user id ', seshid);
+            this.db.users[seshid].posts.push(
+                    {
+                        title: title,
+                        pic: image,
+                        likedBy:[]
+                    }
+            );
+            this.posts.push({
+                pic:image, userid:seshid
+            });
+        },
+
         getNewUserId: function()
         {
             return this.db.userid++;
@@ -78,6 +94,59 @@ module.exports =
             var inx = num % this.posts.length;
             console.log('indx: ', inx);
             return this.posts[num % this.posts.length];
+        },
+
+        likePost: function(seshid, postindx)
+        {
+            var post = this.posts[postindx];
+            if (!post) 
+            {
+                console.log('wrong indx ', postindx);
+                return;
+            }
+            var liked = false;
+            for(var i in this.users[post.userid].posts)
+            {
+                var tpost = this.users[post.userid].posts[i];
+                if (tpost.pic == post.pic)
+                {
+                    liked = true;
+                    if (tpost.likedBy.indexOf(seshid) == -1)
+                    {
+                        console.log('new like');
+                        tpost.likedBy.push(seshid);
+                    }
+                    else
+                    {
+                        console.log('user already liked this');
+                    }
+                }
+                break;
+            }
+            if(!liked)
+            {
+                console.log('warning, that user has no such post');
+                console.log('abort');
+                return;
+            }
+            if (likedBy(seshid, post.userid))
+            {
+                console.log('WE HAVE A MATCH!!');
+            }
+            
+
+        },
+
+        // does user 1 have a post liked by user 2?
+        isLikedBy: function(user1, user2)
+        {
+            for (var p in this.db.users[user1].posts)
+            {
+                var post = this.db.users[user1].posts;
+                if (post.likedBy)
+                    if (post.likedBy.indexOf(user2) != -1) return true;
+            }
+            return false;
         }
 
     };

@@ -5,15 +5,22 @@ function(app,db){
     var json = require('body-parser').json();
     var urlen = require('body-parser').urlencoded({extended:false});
 
-    function auth(req){
+    function auth(req,res){
         var cook = req.signedCookies.sessionid;
-        console.log('cooike',cook);
-        return cook && db.userExists(cook);
+        if(!(cook && db.userExists(cook)))
+        {
+            var sesh = db.getNewUserId();
+            console.log('adding new user session',sesh);
+            res.cookie('sessionid',sesh, {signed:true});
+            db.addUser(sesh, 0);
+            return false;
+        }
+        return true;
     }
 
     app.get('/', function (req, res) {
-        if (auth(req))
-            res.render('home_auth', {});
+        if (auth(req,res))
+            res.render('home', {});
         else
             res.render('home', {});
     });
@@ -22,12 +29,60 @@ function(app,db){
         res.render('trade' );
     });
 
-    app.post('/post', function (req, res) {
-        res.render('collection' );
+    app.get('/upload', function (req, res) {
+        if (!auth(req,res))
+        {
+            res.redirect('/');
+        }
+        else
+        {
+            res.render('upload', {number:db.db[req.signedCookies.sessionid].number} );
+        }
     });
 
+    app.post('/uploadform', function (req, res) {
+        var file;
+        for (file in req.files) break;
+        file = req.files[file];
+        if (!req.body.title || !file.name)
+        {
+            console.log('invalid input file upload');
+            res.render('upload', {formErr:'Invalid input'});
+            return;
+        }
+        if (!db.db[req.signedCookies.sessionid].number)
+        {
+            if (!req.body.phone)
+            {
+                console.log('UPLOADING WITH A PHONE NUMBER!!');
+                res.render('/upload',{formErr:'You need to enter a valid phone number'});
+                return;
+            }
+            else
+            {
+
+                var num = req.body.phone;
+                if (!num || !parseInt(num))
+                {
+                    res.render('/upload',{formErr:'You need to enter a valid phone number'});
+                    return;
+                }
+                num = parseInt(num);
+                if (num < 1000000000 || num > 9999999999)
+                {
+                    res.render('/upload',{formErr:'You need to enter a valid phone number'});
+                    return;
+                }
+                db.db[req.signedCookies.sessionid].number = num
+            }
+        }
+        db.addPost(req.signedCookies.sessionid, file.name, req.body.title);
+        res.redirect('/upload' );
+    });
+
+
     app.get('/test', function (req, res) {
-        res.render('test' );
+        res.render('ajax_test_index' );
     });
 
 
@@ -55,11 +110,26 @@ function(app,db){
             console.log('invlaid id');
             return;
         }
-        
-        res.sendFile(__dirname+'/static/images/' + db.getImage(parseInt(req.query.id)).pic,
+        var pic = db.getImage(parseInt(req.query.id)).pic;
+
+        res.sendFile(__dirname+'/static/images/' + pic,
             function(err){
-                console.log('sent '+db.getImage(0).pic);
+                console.log('sent '+pic);
+                if (err) console.log(err);
         });
+    });
+
+    app.post('/api', json, function (req, res) {
+        if (auth(req,res))
+        {
+            console.log('user liked this ', req.body.id);
+        }
+        else
+        {
+            console.log('not logged in mr');
+        }
+        res.write(JSON.stringify({like:false}));
+        res.end();
     });
 
 

@@ -1,0 +1,5 @@
+#imageWrap {
+	width: 640px;
+	height: 420px;
+	background: url('loading.gif') center center no-repeat;
+}

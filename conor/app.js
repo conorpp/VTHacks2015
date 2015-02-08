@@ -4,6 +4,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     exphbs  = require('express-handlebars'),
     serveStatic = require('serve-static'),
+    multer = require('multer'),
     app = express();
 
 var routes = require('./routes');
@@ -17,6 +18,7 @@ app.use(cookieParser('wow such secrete 132049u32rjfe'));
 
 // parses json, x-www-form-urlencoded, and multipart/form-data
 app.use(bodyParser.json());
+app.use(multer({dest:'./static/images'}));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/static',express.static(__dirname + '/static'));

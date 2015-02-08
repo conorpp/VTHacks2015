@@ -11,7 +11,6 @@ $(document).ready(function(){
         data: { name: "John", location: "Boston" }
 
     }).done(function( msg ) {
-        alert( "Data Saved: " , msg );
     });
 
     $('#phoneButton').click(function(){
