@@ -32,7 +32,7 @@ process.on('SIGINT', function() {
 db.load();
 routes(app,db);
 
-var port = 3000;
+var port = 80;
 app.listen(port);
 
 console.log('listening on port '+port);

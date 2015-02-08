@@ -15,8 +15,8 @@ $(document).ready(function() {
     $('#leftbutton').hide();
 
     $('#leftbutton').on("click", function() {
+        $('#like').css('background-color', '#FFFFEB');
         $('#notification').hide();
-        $('#mainImage').attr('src', link + index);
         console.log('Finished' + ' ' + link + index);
         if( index > 0 ) {
             index -= 1;
@@ -26,23 +26,30 @@ $(document).ready(function() {
         if( index == 0 ) {
             $('#leftbutton').hide();
         }
-    });
-
-    $('#rightbutton').on("click", function() {
-        $('#notification').hide();
         $('#mainImage').attr('src', link + index);
+        updateTitle();
+    });
+    var updateTitle = function(){
+        $('#datitle').text(titles[index % titles.length]);
+    }
+    $('#rightbutton').on("click", function() {
+        $('#like').css('background-color', '#FFFFEB');
+        $('#notification').hide();
         index += 1;
         console.log('Finished' + ' ' + link + index);
         $('#leftbutton').show();
+        updateTitle();
+        $('#mainImage').attr('src', link + index);
     });
 
-    $('#mainImage').on('click', function() {
+    $('#like').on('click', function() {
+        $('#like').css('background-color', '#008200');
         console.log(index);
         $.ajax({
             type: 'POST',
             url: "/api",
             dataType:'json',
-            data: { name: "like", id: index },
+            data: { name: "like", id: index % titles.length},
             success: function(data) {
                 console.log(data);
                 if(data.like) {

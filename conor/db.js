@@ -21,6 +21,12 @@ module.exports =
         posts:[],
         saves:0,
         fs: require('fs'),
+        gogosms: require('./sendSMS'),
+
+        reset: function()
+        {
+            
+        },
 
         load: function()
         {
@@ -35,7 +41,7 @@ module.exports =
                 for (var j in this.db.users[i].posts)
             {
                 this.posts.push({'pic': this.db.users[i].posts[j].pic,
-                                    'userid': j});
+                    'userid': i, 'title':this.db.users[i].posts[j].title});
             }
         },
         save: function()
@@ -55,14 +61,12 @@ module.exports =
             var users = this.db.users;
             if (!users[seshid])
             {
-                
                 users[seshid] = {};
                 users[seshid].posts = [];
-
+                users[seshid].number = number;
             }
-            users[seshid].number = number;
 
-            if (this.saves % 3 == 0)
+            if (this.saves++ % 3 == 0)
             
             {
                 this.save();
@@ -80,7 +84,7 @@ module.exports =
                     }
             );
             this.posts.push({
-                pic:image, userid:seshid
+                pic:image, userid:seshid, title:title
             });
         },
 
@@ -98,20 +102,22 @@ module.exports =
 
         likePost: function(seshid, postindx)
         {
+
             var post = this.posts[postindx];
+            console.log('post '+postindx+': ', post);
             if (!post) 
             {
                 console.log('wrong indx ', postindx);
                 return;
             }
             var liked = false;
-            for(var i in this.users[post.userid].posts)
+            for(var i in this.db.users[post.userid].posts)
             {
-                var tpost = this.users[post.userid].posts[i];
+                var tpost = this.db.users[post.userid].posts[i];
                 if (tpost.pic == post.pic)
                 {
                     liked = true;
-                    if (tpost.likedBy.indexOf(seshid) == -1)
+                    if (tpost.likedBy.indexOf(seshid+'') == -1)
                     {
                         console.log('new like');
                         tpost.likedBy.push(seshid);
@@ -129,9 +135,21 @@ module.exports =
                 console.log('abort');
                 return;
             }
-            if (likedBy(seshid, post.userid))
+            var matchpost = this.isLikedBy(seshid, post.userid);
+            if (matchpost)
             {
                 console.log('WE HAVE A MATCH!!');
+                var num1 = this.db.users[seshid].number;
+                var num2 = this.db.users[post.userid].number;
+
+                var item1 = matchpost.title;
+                var item2 = post.title;
+
+                this.gogosms(num1,item1,num2,item2);
+            }
+            else
+            {
+                console.log('that user doesnt like a thing back');
             }
             
 
@@ -139,12 +157,13 @@ module.exports =
 
         // does user 1 have a post liked by user 2?
         isLikedBy: function(user1, user2)
-        {
+        {   
+            console.log('trying match '+user1+' - '+user2);
+            if (user1 == user2) return false;
             for (var p in this.db.users[user1].posts)
             {
-                var post = this.db.users[user1].posts;
-                if (post.likedBy)
-                    if (post.likedBy.indexOf(user2) != -1) return true;
+                var post = this.db.users[user1].posts[p];
+                if (post.likedBy.indexOf(user2+'') != -1) return post;
             }
             return false;
         }

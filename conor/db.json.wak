@@ -1,11 +1,1 @@
-{"userid":28,"users":{"1": 
-            {"posts":
-                [
-                {"title":"sticker", "postid":"3", "pic":"dino.jpg"},
-                {"title":"sticker", "postid":"4", "pic":"wat.jpg"},
-                {"title":"sticker", "postid":"5", "pic":"yo.jpg"}
-                ]
-            }
-                     
-        }
-}
+{"userid":51,"users":{"5":{"posts":[{"title":"pic1","pic":"68ea6fd2be76e273397d204c7010503a.png","likedBy":["5","67","20","25"]}],"number":2076595209},"14":{"posts":[{"title":"book holders stress book","pic":"065997c076e56b4a3ebc1c34a9133e9f.jpg","likedBy":["5"]}],"number":5408602012},"17":{"posts":[],"number":0},"20":{"posts":[{"title":"Awesome Thing","pic":"e6ff66871dd7b9a25459b02d8a6bf2b4.jpeg","likedBy":[]},{"title":"Another awesome thing","pic":"68f86f3654c05797a2fd78fef26ad020.jpg","likedBy":[]}],"number":8044821204},"25":{"posts":[],"number":0}}}
