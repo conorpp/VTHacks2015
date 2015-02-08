@@ -68,10 +68,10 @@ body {
 	border-radius: 10px;
 	margin: 0px auto;
 	box-shadow: 10px 10px 5px  #669166;
-	width: 600px;
-	height: 600px;
 	display: inline-block;
-	margin-top: 50px;
+	margin-top: 4%;
+	width: 40%;
+	height: 40%;
 }
 .picture h3 {
 	color: #6F8F57;
@@ -84,8 +84,8 @@ body {
 	border-width: 3px;
 	border-radius: 20px;
 	text-align: center;
-	margin-top: 275px;
-	margin-left: 300px;
+	margin-top: 18%;
+	margin-left: 10%;
 	box-shadow: 10px 10px 5px  #669166;
 	display: inline-block;
 	float: left;
@@ -107,8 +107,8 @@ body {
 	border-width: 3px;
 	border-radius: 20px;
 	text-align: center;
-	margin-top: 275px;
-	margin-right: 300px;
+	margin-top: 18%;
+	margin-right: 10%;
 	box-shadow: 10px 10px 5px  #669166;
 	display: inline-block;
 	float: right;
@@ -135,7 +135,7 @@ body {
 	border-radius: 10px;
 	max-width: 70%;
 	margin: 0px auto;
-	margin-top: 50px;
+	margin-top: 4%;
 	box-shadow: 10px 10px 5px  #669166;
 }
 #footer {
