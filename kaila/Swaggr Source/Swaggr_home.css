@@ -92,6 +92,7 @@ body {
 	padding: 1%;
 }
 #leftbutton {
+	width: 167px;
 	font-size: 2.5em;
 	font-weight: bold;
 	color: #8FB26B;
@@ -115,6 +116,7 @@ body {
 	padding: 1%;
 }
 #rightbutton {
+	width: 167px;
 	font-size: 2.5em;
 	font-weight: bold;
 	color: #8FB26B;
