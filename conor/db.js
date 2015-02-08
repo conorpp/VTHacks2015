@@ -43,7 +43,7 @@ module.exports =
             (db.users[sesh])
                 return true;
             return false;
-        }
+        },
         addUser: function(seshid, number)
         {
             var users = this.db.users;
