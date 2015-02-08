@@ -118,6 +118,8 @@ body {
 	font-size: 2.5em;
 	font-weight: bold;
 	color: #8FB26B;
+	padding-right: 3%;
+	padding-left: 3%;
 }
 #rightbutton:hover {
 	color: #000000;
