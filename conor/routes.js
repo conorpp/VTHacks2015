@@ -30,6 +30,7 @@ function(app,db){
         res.redirect('/');
     });
 
+<<<<<<< HEAD
     app.post('/api', json, function (req, res) {
         console.log(req.body);
         res.sendStatus(200);
@@ -39,3 +40,27 @@ function(app,db){
 
 
 };
+=======
+    app.get('/test', function (req, res) {
+        res.render('test',{'name':'colin'});
+    });
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+>>>>>>> c6415f60764701ffef5dc2fcea20c1749690f767
