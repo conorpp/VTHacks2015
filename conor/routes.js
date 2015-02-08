@@ -7,7 +7,8 @@ function(app,db){
 
     function auth(req){
         var cook = req.signedCookies.sessionid;
-        if (db.userExists(cook))
+        
+        if (cook && db.userExists(cook))
         {
             
         }
