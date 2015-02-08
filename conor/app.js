@@ -3,9 +3,11 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     exphbs  = require('express-handlebars'),
+    serveStatic = require('serve-static'),
     app = express();
 
 var routes = require('./routes');
+var db = require('./db');
 
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -17,8 +19,20 @@ app.use(cookieParser('wow such secrete 132049u32rjfe'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.use('/static',express.static(__dirname + '/static'));
 
-routes(app);
+process.on('exit', function(code) {
+});
+process.on('SIGINT', function() {
+    db.save();
+    process.exit();
+});
+db.load();
+routes(app,db);
 
-app.listen(3000);
+var port = 3000;
+app.listen(port);
+
+console.log('listening on port '+port);
+
 
