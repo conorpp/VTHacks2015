@@ -1,0 +1,6 @@
+#!/bin/bash
+cp db.json db.json.bak
+cp db.json.reset db.json
+sudo forever stop app.js
+sudo forever start app.js
+

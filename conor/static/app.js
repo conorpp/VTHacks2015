@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('#leftbutton').hide();
 
     $('#leftbutton').on("click", function() {
-        $('#like').css('background-color', '#FFFFEB');
+        $('#like').css('background-color', '#B8E68A');
         $('#notification').hide();
         console.log('Finished' + ' ' + link + index);
         if( index > 0 ) {
@@ -33,7 +33,7 @@ $(document).ready(function() {
         $('#datitle').text(titles[index % titles.length]);
     }
     $('#rightbutton').on("click", function() {
-        $('#like').css('background-color', '#FFFFEB');
+        $('#like').css('background-color', '#B8E68A');
         $('#notification').hide();
         index += 1;
         console.log('Finished' + ' ' + link + index);

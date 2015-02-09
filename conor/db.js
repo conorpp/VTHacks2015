@@ -43,6 +43,7 @@ module.exports =
                 this.posts.push({'pic': this.db.users[i].posts[j].pic,
                     'userid': i, 'title':this.db.users[i].posts[j].title});
             }
+            console.log('we have '+this.posts.length+' posts');
         },
         save: function()
         {
